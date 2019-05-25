@@ -73,24 +73,23 @@ func readInts(len int) []int {
 }
 
 func main() {
-	n := readInt()
-	a := readInts(n)
+	a := readInt()
+	b := readInt()
+	c := readInt()
+	x := readInt()
 
-	var c int
-	var flg bool
-	for {
-		for i := 0; i < n; i++ {
-			if a[i]%2 != 0 {
-				flg = true
-				break
+	var sum int
+	var cnt int
+	for iA := 0; iA <= a; iA++ {
+		for iB := 0; iB <= b; iB++ {
+			for iC := 0; iC <= c; iC++ {
+				sum = 500*iA + 100*iB + 50*iC
+				if sum == x {
+					cnt++
+				}
 			}
-			a[i] = a[i] / 2
 		}
-		if flg {
-			break
-		}
-		c++
 	}
 
-	fmt.Println(c)
+	fmt.Println(cnt)
 }
