@@ -72,24 +72,24 @@ func readInts(len int) []int {
 	return ii
 }
 
-func main() {
-	a := readInt()
-	b := readInt()
-	c := readInt()
-	x := readInt()
-
-	var sum int
-	var cnt int
-	for iA := 0; iA <= a; iA++ {
-		for iB := 0; iB <= b; iB++ {
-			for iC := 0; iC <= c; iC++ {
-				sum = 500*iA + 100*iB + 50*iC
-				if sum == x {
-					cnt++
-				}
-			}
+func uniqueInt(intSlice []int) []int {
+	keys := make(map[int]bool)
+	list := []int{}
+	for _, entry := range intSlice {
+		if _, value := keys[entry]; !value {
+			keys[entry] = true
+			list = append(list, entry)
 		}
 	}
+	return list
+}
 
-	fmt.Println(cnt)
+func main() {
+	n := readInt()
+	d := readInts(n)
+
+	ud := uniqueInt(d)
+	// sort.Ints(ud)
+
+	fmt.Println(len(ud))
 }
